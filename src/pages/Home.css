@@ -1,0 +1,344 @@
+/*==================== Hero section =============================== */
+.hero-section {
+  background: linear-gradient(135deg, #fff9ef, #fff0d6);
+  padding: 70px 0;
+  overflow: hidden;
+}
+
+.hero-features i {
+  color: #f4a300;
+  font-size: 19px;
+  gap: 10px;
+}
+.hero-features div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+}
+.hero-img {
+  position: relative;
+  width: 100%;
+  padding: 15px;
+}
+.hero-image {
+  width: 100%;
+  height: 430px;
+  object-fit: contain;
+  display: block;
+}
+.delivery-card {
+  position: absolute;
+  left: 0;
+  bottom: 20px; 
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+.delivery-card  i {
+  font-size: 30px;
+  color: #f4a300;
+}
+.delivery-card h5,
+.delivery-card p {
+  display: block;
+}
+.delivery-card h5 {
+  font-size: 14px;
+}
+.delivery-card p {
+  color: #777;
+  margin-top: 3px;
+}
+
+/* =================Mobile hero section===================== */
+@media (max-width: 575px) {
+  .hero-section {
+    padding: 30px 0 25px;
+    height: 82vh;
+  }
+    .hero-content {
+    padding: 10px 5px;
+  }
+   .hero-content h1 {
+    font-size: 36px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+  }
+   .hero-content p {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+   .hero-buttons .btn {
+    padding: 11px 15px;
+    font-size: 14px;
+  }
+   .hero-features i {
+    font-size: 16px;
+  }
+  .hero-img {
+    padding: 15px 0;
+    margin-top: 15px;
+  }
+  .hero-image {
+    height: auto;
+    max-height: 280px;
+    object-fit: contain;
+  }
+  .delivery-card {
+    left: 0;
+    bottom: -40px;
+    padding: 10px 12px;
+    gap: 8px;
+  }
+  .delivery-card > i {
+    font-size: 24px;
+  }
+  .delivery-card h5 {
+    font-size: 12px;
+  }
+
+  .delivery-card p {
+    font-size: 10px;
+  }
+
+
+
+
+}
+
+/* .hero-page{
+  
+  background-image: url("image/food-hero-img.png");
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  text-align: center;
+  background-size: cover;
+  color: white;
+  height:700px;
+  font-size: 20px;
+}
+
+.order-btn{
+  color:white;
+  background-color: yellow;
+
+
+
+}
+@media (max-width:480px){
+  .hero-img{
+   
+    min-height:50vh;
+    
+    
+
+  }
+  
+} */
+
+/* ======================Category=========================== */
+
+.category-card{
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #fff;
+
+}
+.category-card:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+  
+}
+.category-img{
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+
+}
+.category-card:hover .category-img {
+    transform: scale(1.08);
+}
+.category-card .card-body {
+    padding: 15px 10px;
+}
+.category-card .card-title {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+@media (max-width: 575px) {
+    .category-img {
+        height: 150px;
+    }
+
+    .category-card .card-title {
+        font-size: 17px;
+    }
+
+    .category-card .card-body {
+        padding: 12px 5px;
+    }
+}
+
+/* ================= popular Food =================== */
+
+.food-card{
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease , box-shadow 0.3s ease;
+}
+.food-card:hover{
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
+  transform: translateY(-8px);
+}
+.food-img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.food-card .btn-warning:hover{
+  background-color:#f49b00 ;
+}
+.food-type{
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 6px;
+}
+.veg-symbol,
+.nonveg-symbol{
+   width: 18px;
+    height: 18px;
+    border: 2px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.veg-symbol{
+  border-color: green;
+}
+.nonveg-symbol {
+    border-color: red;
+}
+.food-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+.veg-symbol .food-dot {
+    background-color: green;
+}
+
+.nonveg-symbol .food-dot {
+    background-color: red;
+}
+.veg-text {
+    color: green;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.nonveg-text {
+    color: red;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+@media (max-width: 575px) {
+.food-img {
+        height: 125px;
+}
+
+.food-card .card-body {
+        padding: 10px;
+}
+.food-card .card-title {
+        font-size: 15px;
+        line-height: 1.4;
+        margin-top: 15px;
+}
+.view-btn {
+        font-size: 13px;
+        padding: 7px 10px;
+}
+
+}
+
+/* ============================ Offer section======================== */
+
+.offer-section {
+    background: linear-gradient(
+        135deg,
+        #212529,
+        #495057
+    );
+}
+
+@media (max-width:767px){
+  .offer-section{
+    
+    text-align: center;
+  }
+   .offer-section h2 {
+        font-size: 24px;
+        line-height: 1.3;
+        /* margin-bottom: 15px; */
+    }
+     .offer-section p.text-white {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    .offer-section .badge {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+    .offer-section button {
+        width: 100%;
+        max-width: 160px;
+        padding: 10px 20px;
+        
+    }
+
+}
+
+/* =============================Why Choose section ==================== */
+
+.feature-icon {
+    font-size: 50px;
+    color: #ffc107;
+}
+
+@media(max-width:767px){
+   .feature-section {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .feature-section .text-center > p {
+        font-size: 14px;
+    }
+     .feature-icon {
+        font-size: 30px;
+    }
+
+
+}
+
+
+
+
+

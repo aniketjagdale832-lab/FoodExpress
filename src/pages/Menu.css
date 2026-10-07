@@ -1,0 +1,82 @@
+.menu-hero {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #fff3e6, #ffffff);
+}
+.hero-small{
+    color: #ff6b00 ;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+.menu-hero h1 {
+    font-size: 48px;
+    font-weight: 800;
+    margin-top: 15px;
+}
+.menu-hero h1 span {
+    color: #ff6b00;
+}
+.hero-description {
+    max-width: 650px;
+    margin: 15px auto 0;
+    color: #777;
+    font-size: 17px;
+}
+
+
+/* ==================search menu======================= */
+
+
+ .search-box {
+    height: 40px;
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Search Icon */
+
+.search-box .input-group-text {
+    width: 52px;
+    background: white;
+    border: none;
+    border-right: 1px solid #dee2e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-box .input-group-text i {
+    color: #ff9800;
+    font-size: 25px;
+}
+
+/* Input */
+
+.search-box .form-control {
+    height: 40px;
+    border: none;
+    padding: 0 16px;
+    font-size: 18px;
+}
+
+.search-box .form-control:focus {
+    box-shadow: none;
+}
+
+.search-box .form-control::placeholder {
+    color: #52627a;
+}
+
+/* Search Button */
+
+.search-box .btn-warning {
+    width: 90px;
+    height: 40px;
+    border: none;
+    border-radius: 0;
+    font-size: 18px;
+    font-weight: 500;
+}
