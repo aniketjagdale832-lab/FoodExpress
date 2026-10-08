@@ -72,3 +72,35 @@ export const Products =[
     }
 
 ]
+
+
+
+export const Pizza=[
+    {
+        id:1,
+        name:"paneer Tikka Pizza",
+        veg:true,
+        img:"/image/pizza-img/paneer-tikka-pizza.png",
+        price:199,
+        description: "Delicious paneer tikka with onion, capsicum and cheese.",
+
+    },
+     {
+        id:1,
+        name:"paneer Tikka Pizza",
+        veg:true,
+        img:"/image/pizza-img/paneer-tikka-pizza.png",
+        price:199,
+        description: "Delicious paneer tikka with onion, capsicum and cheese.",
+
+    },
+    {
+        id:1,
+        name:"paneer Tikka Pizza",
+        veg:true,
+        img:"/image/pizza-img/paneer-tikka-pizza.png",
+        price:199,
+        description: "Delicious paneer tikka with onion, capsicum and cheese.",
+
+    }
+]
