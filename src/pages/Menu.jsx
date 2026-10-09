@@ -82,7 +82,7 @@ const Menu = () => {
             {/*=========================================== Pizza Section========================================== */}
             <section>
                 <div className="container">
-                    <h2 className='mt-4'>Pizza</h2>
+                    <h2 className='mt-4 text-center'>Pizza</h2>
 
                     <div className="row">
                         {

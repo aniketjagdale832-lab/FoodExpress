@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import {toast} from 'react-toastify'
 
 const Profile = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("loggedIn")))
@@ -32,6 +33,7 @@ const Profile = () => {
       return u;
     })
     localStorage.setItem("users", JSON.stringify(updatedUserData));
+    toast.success("edit profile successful")
 
 
    
@@ -50,7 +52,7 @@ const Profile = () => {
     const cPass = cPassRef.current.value;
     const ccPass = ccPassRef.current.value;
     if(cPass != ccPass){
-      alert("Please Enter same Password");
+      toast.success("Please Enter same Password");
       return
     }
     if(user.pass === cPass && user.pass === ccPass){
@@ -59,7 +61,7 @@ const Profile = () => {
       
       
     }else{
-      alert("Please Enter Correct password")
+      toast.success("Please Enter Correct password")
     }
 
 
@@ -72,7 +74,7 @@ const Profile = () => {
     const newPass = newPassRef.current.value;
     const cNewPass = cNewPassRef.current.value;
     if(newPass != cNewPass){
-      alert("Enter same Password")
+      toast.success("Enter same Password")
       return      
     }
 
@@ -92,7 +94,7 @@ const Profile = () => {
       return p;
     })
     localStorage.setItem("users",JSON.stringify(updatedPass));
-    alert("Password Changed Successfully")
+    toast.success("Password Changed Successfully")
     setShowModal(false);
     
    
