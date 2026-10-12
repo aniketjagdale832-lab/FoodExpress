@@ -171,7 +171,14 @@
 
 
 /* ================================== Pizza section ======================================== */
+.pizza-section{
+    background-color: #fff3e6;
+}
+.food-header{
+    color:#ff6b00;
+    text-shadow: #777;
 
+}
 .menu-img{
      width: 100%;
      height: 200px;
@@ -184,8 +191,8 @@
   border: none;
   border-radius: 15px;
   overflow: hidden;
-  transition: transform 0.3s ease ,
-   box-shadow 0.3s ease;
+  transition: transform 0.3s ease ,box-shadow 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
 }
 .menu-card:hover{
   box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
@@ -198,4 +205,9 @@
 .menu-card .card-description{
     font-size: 13px;
     line-height: 1.2;
+}
+.menu-card .add-btn{
+    background-color: #ff6b00;
+    color: white;
+    font-weight: bold;
 }

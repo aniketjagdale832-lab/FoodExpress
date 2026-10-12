@@ -63,7 +63,7 @@ const Menu = () => {
 
                                 <a href="#" className="category-btn active"> All </a>
                                 <a href="#" className="category-btn">  Burger </a>
-                                <a href="#" className="category-btn">  Pizza </a>
+                                <a href="#pizzaFood" className="category-btn">  Pizza </a>
                                 <a href="#" className="category-btn">  Biryani </a>
                                 <a href="#" className="category-btn">  Rolls </a>
                                 <a href="#" className="category-btn">  Snacks </a>
@@ -80,15 +80,15 @@ const Menu = () => {
             </section>
 
             {/*=========================================== Pizza Section========================================== */}
-            <section>
+            <section className='pizza-section'>
                 <div className="container">
-                    <h2 className='mt-4 text-center'>Pizza</h2>
+                    <h2 className='food-header pt-3 text-center fw-bold ' id='pizzaFood'>Pizza</h2>
 
                     <div className="row">
                         {
                             Pizza.map((pizza)=>(
                                 <div className="col-6 col-md-4 col-lg-3">
-                                    <div className="card menu-card  border-0">
+                                    <div className="card menu-card  border-0 mb-3">
                                         <img src={pizza.img} alt="" className='card-img-top menu-img'/>
                                         <div className="body  p-3">
                                             <div className="food-type ">
@@ -106,7 +106,7 @@ const Menu = () => {
                                             <p className='card-description'>{pizza. description}</p>
                                             <div className="d-flex justify-content-between align-items-center ">
                                             <p className='card-price'>₹{pizza.price}</p>
-                                            <button className='btn btn-warning'>Add <i className="bi bi-cart-plus"></i> </button>
+                                            <button className='add-btn btn '>Add <i className="bi bi-cart-plus"></i> </button>
                                             </div>
                                         </div>
                                     </div>

@@ -86,21 +86,30 @@ export const Pizza=[
 
     },
      {
-        id:1,
-        name:"paneer Tikka Pizza",
+        id:2,
+        name:"Cheese Burst Pizza",
         veg:true,
-        img:"/image/pizza-img/paneer-tikka-pizza.png",
+        img:"/image/pizza-img/Cheese Burst Pizza.png",
         price:199,
-        description: "Delicious paneer tikka with onion, capsicum and cheese.",
+        description: "Extra cheesy pizza with a creamy cheese-filled crust.",
 
     },
     {
-        id:1,
-        name:"paneer Tikka Pizza",
+        id:3,
+        name:"Margherita Pizza",
         veg:true,
-        img:"/image/pizza-img/paneer-tikka-pizza.png",
+        img:"/image/pizza-img/Margherita Pizza.png",
         price:199,
-        description: "Delicious paneer tikka with onion, capsicum and cheese.",
+        description: "Classic pizza with fresh tomato, mozzarella and basil.",
 
-    }
+    },
+    {
+        id:4,
+        name:"Pepperoni Pizza",
+        veg:false,
+        img:"/image/pizza-img/Pepperoni Pizza.png",
+        price:199,
+        description: "Cheesy pizza topped with delicious pepperoni slices.",
+
+    },
 ]
