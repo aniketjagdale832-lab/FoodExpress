@@ -6,6 +6,17 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Profile from './pages/Profile'
 import Menu from './pages/Menu'
+import PizzaCart from './cartPages/PizzaCart'
+import BurgerCart from './cartPages/BurgerCart'
+import BiryaniCart from './cartPages/BiryaniCart'
+import SandwichCart from './cartPages/SandwichCart'
+import CakesCart from './cartPages/CakesCart'
+import MomosCart from './cartPages/MomosCart'
+import ParathaCart from './cartPages/ParathaCart'
+import ShawarmaCart from './cartPages/ShawarmaCart'
+import IceCreameCart from './cartPages/IceCreameCart'
+import FrenchFriesCart from './cartPages/FrenchFriesCart'
+
 
 const router = createBrowserRouter([
 
@@ -36,7 +47,48 @@ const router = createBrowserRouter([
             {
                 path:'/profile',
                 element:<Profile />
+            },
+            {
+                path:'/pizza',
+                element:<PizzaCart />
+            },
+            {
+                path:'/burger',
+                element:<BurgerCart />
+            },
+            {
+                path:'/biryani',
+                element:<BiryaniCart />
+            },
+            {
+                path:'/sandwich',
+                element:<SandwichCart />
+            },
+            {
+                path:'/cakes',
+                element:<CakesCart />
+            },
+            {
+                path:'/momos',
+                element:<MomosCart />
+            },
+            {
+                path:'/paratha',
+                element:<ParathaCart />
+            },
+            {
+                path:'/shawarma',
+                element:<ShawarmaCart />
+            },
+            {
+                path:'/ice-creame',
+                element:<IceCreameCart />
+            },
+            {
+                path:'/french-fries',
+                element:<FrenchFriesCart />
             }
+
         ]
     }
 

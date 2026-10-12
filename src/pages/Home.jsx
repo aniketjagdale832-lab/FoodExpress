@@ -1,7 +1,7 @@
 
 import './Home.css'
 import { Category } from '../FoodData/Category.js'
-import { Products } from '../FoodData/Products.js'
+import { AllFoods} from '../FoodData/Products.js'
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
 import {toast} from 'react-toastify'
@@ -94,13 +94,13 @@ const Home = () => {
 
 
             {/* =============================== Categories =================================== */}
-            <section className='categories bg-light mb-4'>
+            <section className='category-section  mb-4'>
 
-                <div className="container mt-5">
+                <div className="container">
 
-                    <div className="text-center ">
-                        <h2 className="fw-bold">
-                            Popular Categories
+                    <div className="text-center pt-5">
+                        <h2 className="fw-bold category-header">
+                            Popular <span>Categories</span>
                         </h2>
 
                         <p className="text-muted">
@@ -117,8 +117,11 @@ const Home = () => {
                                     <div className="card text-center shadow-sm category-card h-100 border-0 ">
                                         <img src={category.img} alt="" className='card-img-top category-img' />
 
-                                        <div className="card-body">
-                                            <h5 className='card-title'>{category.title}</h5>
+                                        <div className="card-body ">
+                                            <div className="card-text">
+                                                <Link to={category.link} className='card-link'><h5 className='card-title'>{category.title}</h5></Link>
+                                            </div>
+                                            
                                         </div>
 
                                     </div>
@@ -139,12 +142,12 @@ const Home = () => {
 
             {/*======================= Popular Food ========================= */}
 
-            <section className='bg-light mt-5'>
+            <section className='mt-5'>
                 <div className="container">
 
                     <div className="text-center">
-                        <h2 className='fw-bold'>
-                            Popular Foods
+                        <h2 className='fw-bold food-header'>
+                            Popular <span>Foods</span>
                         </h2>
                         <p className='text-muted'>
                             Our customers' favorite dishes
@@ -153,7 +156,7 @@ const Home = () => {
 
                     <div className="row g-4">
                         {
-                            Products.map((food) => (
+                            AllFoods.map((food) => (
                                 <div className="col-6 col-md-4 col-lg-3" key={food.name}>
                                     <div className="card food-card shadow-sm h-100 border-0">
                                         <img src={food.img} className="card-img-top food-img" alt="Foods-img" />
@@ -231,7 +234,7 @@ const Home = () => {
 
             {/* ================= WHY CHOOSE US  Section =============== */}
 
-            <section className='mt-5 bg-light feature-section'>
+            <section className='mt-5  feature-section'>
                 <div className="container">
                     <div className="text-center mb-5">
                         <h2 className='fw-bold'>
