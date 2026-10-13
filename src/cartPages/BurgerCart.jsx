@@ -6,13 +6,13 @@ const BurgerCart = () => {
     <>
       <section className='food-section'>
         <div className="container">
-          <h2 className='food-header pt-3 text-center fw-bold ' id='pizzaFood'>Burgers</h2>
+          <h2 className='food-header pt-3 text-center fw-bold ' id='burgerFood'>Burgers</h2>
 
           <div className="row">
             {
               Burger.map((burger) => (
                 <div className="col-6 col-md-4 col-lg-3">
-                  <div className="card food-card  border-0 mb-3">
+                  <div className="card food-card  border-0 mb-2">
                     <img src={burger.img} alt="" className='card-img-top food-img' />
                     <div className="body  p-3">
                       <div className="food-type ">

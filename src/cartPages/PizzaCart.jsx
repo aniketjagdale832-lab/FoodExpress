@@ -29,7 +29,7 @@ const PizzaCart = () => {
                                             <h4 className='card-title food-name'>{pizza.name}</h4>
                                             <p className='food-description'>{pizza.description}</p>
                                             <div className="d-flex justify-content-between align-items-center ">
-                                                <p className='card-price'>₹{pizza.price}</p>
+                                                <p className='food-price'>₹{pizza.price}</p>
                                                 <button className='food-add-btn btn '>Add <i className="bi bi-cart-plus"></i> </button>
                                             </div>
                                         </div>

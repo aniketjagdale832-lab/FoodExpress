@@ -134,7 +134,7 @@ export const Pizza=[
         id:7,
         name:"BBQ Chicken Pizza",
         type:false,
-        img:"/image/pizza-img/Farmhouse Pizza.png",
+        img:"/image/pizza-img/Rustic BBQ Chicken Pizza Feast.png",
         price:419,
         description: "Smoky BBQ chicken with mozzarella cheese, onion and capsicum."   
     },
@@ -142,7 +142,7 @@ export const Pizza=[
         id:8,
         name:"Mexican Green Wave Pizza",
         type:true,
-        img:"/image/pizza-img/Farmhouse Pizza.png",
+        img:"/image/pizza-img/Spicy Green Wave Pizza Feast.png",
         price:419,
         description: "Spicy pizza topped with capsicum, onion, jalapenos and cheese."
 
@@ -157,7 +157,7 @@ export const Burger =[
         id:1,
         name:"Classic Veg Burger",
         type:true,
-        img:"",
+        img:"/image/burger-img/classic-veg-burger.png",
         price:99,
         description:"Crispy veg patty with lettuce, tomato and creamy mayonnaise."
     },
@@ -165,7 +165,7 @@ export const Burger =[
         id:2,
         name:"Cheese Burger",
         type:true,
-        img:"",
+        img:"/image/burger-img/cheese-burger.png",
         price:129,
         description: "Delicious veg patty topped with melted cheese and fresh veggies."
 
@@ -174,7 +174,7 @@ export const Burger =[
         id:3,
         name:"Chicken Burger",
         type:false,
-        img:"",
+        img:"/image/burger-img/chicken-burger.png",
         price:159,
          description: "Juicy chicken patty with fresh lettuce and creamy mayonnaise."
     },
@@ -182,7 +182,7 @@ export const Burger =[
         id:4,
         name: "Crispy Chicken Burger",
         type:false,
-        img:"",
+        img:"/image/burger-img/crispy-chicken-burger.png",
         price:179,
         description: "Crunchy fried chicken with spicy sauce and fresh lettuce."
     },
@@ -190,7 +190,7 @@ export const Burger =[
         id:5,
         name:"Paneer Burger",
         type:true,
-        img:"",
+        img:"/image/burger-img/grilled-paneer-burger.png",
         price:149,
         description: "Spicy grilled paneer patty with onion, lettuce and mint mayo."
 
@@ -199,7 +199,7 @@ export const Burger =[
         id:6,
         name:"Aloo Tikki Burger",
         type:true,
-        img:"",
+        img:"/image/burger-img/crispy aloo-tikki-burger.png",
         price:89,
         description: "Crispy potato tikki with tangy sauce and crunchy vegetables."
 
@@ -208,7 +208,7 @@ export const Burger =[
         id:7,
         name:"BBQ Chicken Burger",
         type:false,
-        img:"",
+        img:"/image/burger-img/bbq-chicken-burger.png",
         price:199,
         description: "Grilled chicken patty with smoky BBQ sauce and caramelized onion."
     },
@@ -216,7 +216,7 @@ export const Burger =[
         id:8,
         name:"Double Cheese Burger",
         type:true,
-        img:"",
+        img:"/image/burger-img/double-cheese-burger.png",
         price:189,
         description: "Two crispy veg patties layered with double cheese and special sauce."
 

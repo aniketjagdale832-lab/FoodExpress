@@ -160,10 +160,16 @@
 }
 .category-header{
   color: #ff6b00;
-  text-shadow: #777;
+  font-family: Georgia, serif;
+  text-shadow:5px 5px 5px gray;
+  font-weight: bold;
+  font-size: 30PX;
 }
 .category-header span{
   color: #f49b00;
+}
+.category-section .text{
+  font-size: 18px;
 }
 .category-card:hover{
   transform: translateY(-8px);
@@ -210,12 +216,27 @@
 }
 
 /* ================= popular Food =================== */
+.foods-header{ 
+   color: #ff6b00;
+  font-family: Georgia, serif;
+  text-shadow:5px 5px 5px gray;
+  font-weight: bold;
+  font-size: 35PX;
+  
 
+}
+.foods-header span{
+   color: #f49b00;
+
+}
+.all-foods .text{
+  font-size: 18px;
+}
 .food-card{
   border-radius: 15px;
   overflow: hidden;
   transition: transform 0.3s ease ,
-   box-shadow 0.3s ease;
+  box-shadow 0.3s ease;
 }
 .food-card:hover{
   box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
@@ -273,6 +294,16 @@
     color: red;
     font-size: 13px;
     font-weight: 600;
+}
+.food-card .view-btn{
+  background-color: #f49b00;
+  justify-content: end;
+  color: white;
+}
+.food-cad .view-btn:hover{
+  background-color: #f49b00 ;
+  color: white;
+
 }
 
 @media (max-width: 575px) {

@@ -82,11 +82,6 @@ const Home = () => {
                             </div>
                         </div>
 
-
-
-
-
-
                     </div>
                 </div>
 
@@ -100,10 +95,10 @@ const Home = () => {
 
                     <div className="text-center pt-5">
                         <h2 className="fw-bold category-header">
-                            Popular <span>Categories</span>
+                            POPULAR <span>CATEGORIES</span>
                         </h2>
 
-                        <p className="text-muted">
+                        <p className="text-muted text">
                             Choose your favorite food
                         </p>
 
@@ -113,7 +108,7 @@ const Home = () => {
                     <div className="row g-4 justify-content-center mt-4 ">
                         {
                             Category.map((category) => (
-                                <div className="col-4 col-sm-4 col-lg-2 mb-3" key={category.img}>
+                                <div className="col-4 col-sm-4 col-lg-2 mb-3" key={category.id}>
                                     <div className="card text-center shadow-sm category-card h-100 border-0 ">
                                         <img src={category.img} alt="" className='card-img-top category-img' />
 
@@ -134,22 +129,19 @@ const Home = () => {
                     </div>
                 </div>
 
-
-
-
             </section>
 
 
             {/*======================= Popular Food ========================= */}
 
-            <section className='mt-5'>
+            <section className='all-foods mt-5'>
                 <div className="container">
 
                     <div className="text-center">
-                        <h2 className='fw-bold food-header'>
-                            Popular <span>Foods</span>
+                        <h2 className='fw-bold foods-header'>
+                            POPULAR  <span>FOODS</span>
                         </h2>
-                        <p className='text-muted'>
+                        <p className='text-muted text'>
                             Our customers' favorite dishes
                         </p>
                     </div>
@@ -178,7 +170,7 @@ const Home = () => {
 
                                             <div className="d-fiex justify-content-between ">
                                                 {/* <h5 className='price'>₹{food.price}</h5> */}
-                                                <button className='btn view-btn btn-warning'><Link to="/menu" className='text-decoration-none text-white fw-bold'>View</Link>
+                                                <button className='btn view-btn'><Link to="/menu" className='text-decoration-none text-white fw-bold'>View</Link>
 
                                                     {/* <i className="bi bi-cart-plus"></i> */}
                                                 </button>

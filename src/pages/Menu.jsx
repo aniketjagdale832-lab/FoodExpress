@@ -1,9 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Menu.css'
-import { Pizza } from '../FoodData/Products.js'
+import { Pizza, Burger, Sandwich, Momos, Paratha, Biryanis, Cakes, IceCreams, FrenchFries } from '../FoodData/Products.js'
+
 import PizzaCart from '../cartPages/PizzaCart.jsx'
+import BurgerCart from '../cartPages/BurgerCart.jsx'
+import { useEffect } from 'react'
+import { useRef } from 'react'
+
+
 
 const Menu = () => {
+
+    const searchRef = useRef();
+    const [search,setSearch] =useState("");
+    const [searchClicked, setsearchClicked] = useState(false);
+    const [filteredFoods, setFilteredFoods] = useState([]);
+
+    const allMenu = [...Pizza, ...Burger, ...Sandwich, ...Momos, ...Paratha, ...Biryanis, ...Cakes, ...IceCreams, ...FrenchFries];
+
+    const handleSearch  =() =>{
+        setSearch(searchRef.current.value.trim().toLowerCase());
+        setsearchClicked(true);
+    }
+
+    useEffect(() => {
+       
+         const result = allMenu.filter((foods) =>
+            foods.name.toLowerCase().includes(search.toLowerCase().trim())
+        );
+        setFilteredFoods(result);
+       
+
+
+    },[search,searchClicked]);
+
     return (
         <>
             {/* ======================== Menu Hero section================================= */}
@@ -38,9 +68,9 @@ const Menu = () => {
                                 <input
                                     type="text"
                                     className="form-control"
-                                    placeholder="Search your favorite food..." />
+                                    placeholder="Search your favorite food..." ref={searchRef} />
 
-                                <button className="btn btn-warning">
+                                <button className="btn btn-warning" onClick={handleSearch}>
                                     Search
                                 </button>
 
@@ -62,13 +92,16 @@ const Menu = () => {
                         <div className="col-12 col-lg-12 text-center mb-3">
                             <div className="category-button">
 
-                                <a href="#" className="category-btn active"> All </a>
-                                <a href="#" className="category-btn">  Burger </a>
+                                <a href="#" className="category-btn all-food active"> All </a>
+                                <a href="#burgerFood" className="category-btn">  Burger </a>
                                 <a href="#pizzaFood" className="category-btn">  Pizza </a>
                                 <a href="#" className="category-btn">  Biryani </a>
-                                <a href="#" className="category-btn">  Rolls </a>
-                                <a href="#" className="category-btn">  Snacks </a>
-                                <a href="#" className="category-btn">  Drinks </a>
+                                <a href="#" className="category-btn">  Shawarma </a>
+                                <a href="#" className="category-btn">  Cakes </a>
+                                <a href="#" className="category-btn">  Pastha </a>
+                                <a href="#" className="category-btn">  Paratha </a>
+                                <a href="#" className="category-btn">  Sandwich </a>
+
 
 
 
@@ -81,10 +114,59 @@ const Menu = () => {
             </section>
 
             {/*=========================================== Pizza Section========================================== */}
-         
-            <PizzaCart />
-            
-           
+
+
+
+            {
+                searchClicked ? (
+                    <section className='food-section'>
+                        <div className="container">
+                            <h2 className='food-header pt-3 text-center fw-bold ' id='pizzaFood'></h2>
+
+                            <div className="row">
+                                {
+                                    filteredFoods.map((food) => (
+                                        <div className="col-6 col-md-4 col-lg-3">
+                                            <div className="card food-card  border-0 mb-3">
+                                                <img src={food.img} alt="" className='card-img-top food-img' />
+                                                <div className="body  p-3">
+                                                    <div className="food-type ">
+                                                        <span
+                                                            className={food.type ? "veg-symbol" : "nonveg-symbol"}
+                                                        >
+                                                            <span className="food-dot"></span>
+                                                        </span>
+
+                                                        {/* <span className={food.veg ? "veg-text" : "nonveg-text"}>
+                                                                           {food.veg ? "Veg" : "Non-Veg"}
+                                                                       </span> */}
+                                                    </div>
+                                                    <h4 className='card-title food-name'>{food.name}</h4>
+                                                    <p className='food-description'>{food.description}</p>
+                                                    <div className="d-flex justify-content-between align-items-center ">
+                                                        <p className='card-price'>₹{food.price}</p>
+                                                        <button className='food-add-btn btn '>Add <i className="bi bi-cart-plus"></i> </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))
+                                }
+
+                            </div>
+                        </div>
+                    </section>
+
+                ) : (
+
+                    <>
+                        <PizzaCart />
+                        <BurgerCart />
+                    </>
+                )
+            }
+
+
 
 
 
