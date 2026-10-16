@@ -89,7 +89,7 @@ const Menu = () => {
             <section className='category-section bg-light'>
                 <div className="container">
                     <div className="row ">
-                        <div className="col-12 col-lg-12 text-center mb-3">
+                        <div className="col-12 text-center mb-3">
                             <div className="category-button">
 
                                 <a href="#" className="category-btn all-food active"> All </a>
@@ -144,7 +144,7 @@ const Menu = () => {
                                                     <h4 className='card-title food-name'>{food.name}</h4>
                                                     <p className='food-description'>{food.description}</p>
                                                     <div className="d-flex justify-content-between align-items-center ">
-                                                        <p className='card-price'>₹{food.price}</p>
+                                                        <p className='food-price'>₹{food.price}</p>
                                                         <button className='food-add-btn btn '>Add <i className="bi bi-cart-plus"></i> </button>
                                                     </div>
                                                 </div>

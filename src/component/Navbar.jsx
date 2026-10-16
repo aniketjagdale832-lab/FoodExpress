@@ -63,7 +63,7 @@ const Navbar = () => {
 
 
 
-                        <div className="navbar-nav  nav-links text-center ms-auto d-flex align-items-center" id="navbarNav">
+                        <div className="navbar-nav  nav-links text-center ms-auto d-flex align-items-center fw-bold" id="navbarNav">
                             <Link to="/">Home</Link>
                             <Link to="/menu">Menu</Link>
                             <Link to="/cart">Cart</Link>
@@ -73,8 +73,8 @@ const Navbar = () => {
                             }
 
                             {
-                                loggedIn ? <button className='btn btn-danger' onClick={logout}>Logout</button> :
-                                    <button className='btn btn-danger' onClick={() => navigate('/login')}>Login</button>
+                                loggedIn ? <button className='btn btn-danger fw-bold' onClick={logout}>Logout</button> :
+                                    <button className='btn btn-danger fw-bold' onClick={() => navigate('/login')}>Login</button>
 
                             }
                         </div>

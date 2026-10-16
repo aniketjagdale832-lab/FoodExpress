@@ -91,7 +91,7 @@ const Home = () => {
             {/* =============================== Categories =================================== */}
             <section className='category-section  mb-4'>
 
-                <div className="container">
+              
 
                     <div className="text-center pt-5">
                         <h2 className="fw-bold category-header">
@@ -104,8 +104,8 @@ const Home = () => {
 
                     </div>
 
-
-                    <div className="row g-4 justify-content-center mt-4 ">
+                    <div className="container">
+                    <div className="row g-4 justify-content-center mt-4">
                         {
                             Category.map((category) => (
                                 <div className="col-4 col-sm-4 col-lg-2 mb-3" key={category.id}>
@@ -150,7 +150,7 @@ const Home = () => {
                         {
                             AllFoods.map((food) => (
                                 <div className="col-6 col-md-4 col-lg-3" key={food.name}>
-                                    <div className="card food-card shadow-sm h-100 border-0">
+                                    <div className="card foods-card shadow-sm border-0">
                                         <img src={food.img} className="card-img-top food-img" alt="Foods-img" />
                                         <div className="card-body">
                                             <div className="food-type">
@@ -168,9 +168,9 @@ const Home = () => {
                                             <h5 className='card-title fw-bold'>{food.name}</h5>
                                             <p className='text-muted'>{food.description}</p>
 
-                                            <div className="d-fiex justify-content-between ">
+                                            <div className="d-fiex justify-content-end ">
                                                 {/* <h5 className='price'>₹{food.price}</h5> */}
-                                                <button className='btn view-btn'><Link to="/menu" className='text-decoration-none text-white fw-bold'>View</Link>
+                                                <button className='btn view-btn d-fiex justify-content-end'><Link to="/menu" className='text-decoration-none text-white fw-bold '>View</Link>
 
                                                     {/* <i className="bi bi-cart-plus"></i> */}
                                                 </button>
