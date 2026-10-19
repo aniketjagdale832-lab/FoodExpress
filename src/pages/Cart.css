@@ -1,0 +1,77 @@
+ .table-heading {
+    background-color: #fff9ef;
+    color: red;
+    
+}
+.table-heading th{
+    padding: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.empty-card .add-menu-btn{
+    background-color: #ff6b00;
+   font-weight: bold;
+   color: white;
+   font-size: 18px;
+}
+.empty-card .add-menu-btn:hover{
+    background-color:#f49b00 ;
+}
+.pruduct-img img{
+    border-radius: 10px;
+}
+
+.product-name{
+    font-weight: bold;
+    font-size: 18px;
+
+    
+}
+.inc-dec-btn .btn{
+    
+    font-size: 18px;
+}
+.inc-dec-btn .input-value{
+    text-align: center;
+    font-weight: bold;
+    width: 40px;
+    border: 1px solid rgb(129, 123, 123);
+    font-size: 20px;
+  
+} 
+
+.table-footer {
+    background-color: #fff9ef;
+    color: red;
+    
+}
+.table-footer td{
+    padding: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+
+
+
+
+
+.order-summary {
+    background-color: white;
+
+    border-radius: 15px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.08);
+
+    position: sticky;
+
+    top: 20px;
+}
+.order-summary h3{
+    
+}

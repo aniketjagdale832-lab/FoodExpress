@@ -1,7 +1,11 @@
 import React from 'react'
 import { Biryanis } from '../FoodData/Products'
+import {useNavigate} from 'react-router-dom'
+import {addToCart} from './addedToCart.js'
 
 const BiryaniCart = () => {
+
+  const navigate = useNavigate();
   return (
     <>
       <section className='food-section'>
@@ -30,7 +34,10 @@ const BiryaniCart = () => {
                       <p className='food-description'>{biryani.description}</p>
                       <div className="d-flex justify-content-between align-items-center ">
                         <p className='card-price'>₹{biryani.price}</p>
-                        <button className='food-add-btn btn '>Add <i className="bi bi-cart-plus"></i> </button>
+                        <button className='food-add-btn btn'
+                        onClick={()=>addToCart(biryani,navigate)}
+                        >
+                          Add <i className="bi bi-cart-plus"></i> </button>
                       </div>
                     </div>
                   </div>

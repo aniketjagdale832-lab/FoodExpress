@@ -1,7 +1,10 @@
 import React from 'react'
 import { IceCreams } from '../FoodData/Products'
+import { addToCart } from './addedToCart'
+import { useNavigate } from 'react-router-dom'
 
 const IceCreameCart = () => {
+    const navigate = useNavigate();
     return (
         <>
             <section className='food-section'>
@@ -13,6 +16,7 @@ const IceCreameCart = () => {
                             IceCreams.map((ice) => (
                                 <div className="col-6 col-md-4 col-lg-3">
                                     <div className="card food-card  border-0 mb-3">
+
                                         <img src={ice.img} alt="" className='card-img-top food-img' />
                                         <div className="body  p-3">
                                             <div className="food-type ">
@@ -26,11 +30,22 @@ const IceCreameCart = () => {
                                                              {food.veg ? "Veg" : "Non-Veg"}
                                                          </span> */}
                                             </div>
-                                            <h4 className='card-title food-name'>{ice.name}</h4>
-                                            <p className='food-description'>{ice.description}</p>
+
+                                             <h4 className='card-title food-name'>
+                                                {ice.name}
+                                            </h4>
+                                            <p className='food-description'>
+                                                {ice.description}
+                                            </p>
+
                                             <div className="d-flex justify-content-between align-items-center ">
-                                                <p className='card-price'>₹{ice.price}</p>
-                                                <button className='food-add-btn btn '>Add <i className="bi bi-cart-plus"></i> </button>
+                                                <p className='card-price'>
+                                                    ₹{ice.price}
+                                                </p>
+                                                <button className='food-add-btn btn ' onClick={()=>addToCart(ice,navigate)}>
+                                                    Add 
+                                                    <i className="bi bi-cart-plus"></i>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>

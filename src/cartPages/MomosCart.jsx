@@ -1,7 +1,10 @@
 import React from 'react'
 import { Momos } from '../FoodData/Products'
+import { useNavigate } from 'react-router-dom'
+import { addToCart } from './addedToCart';
 
 const MomosCart = () => {
+  const navigate = useNavigate();
   return (
     <>
       <section className='food-section'>
@@ -12,8 +15,11 @@ const MomosCart = () => {
             {
               Momos.map((momos) => (
                 <div className="col-6 col-md-4 col-lg-3">
+
                   <div className="card food-card  border-0 mb-3">
+
                     <img src={momos.img} alt="" className='card-img-top food-img' />
+
                     <div className="body  p-3">
                       <div className="food-type ">
                         <span
@@ -26,11 +32,24 @@ const MomosCart = () => {
                                                            {food.veg ? "Veg" : "Non-Veg"}
                                                        </span> */}
                       </div>
-                      <h4 className='card-title food-name'>{momos.name}</h4>
-                      <p className='food-description'>{momos.description}</p>
+
+                      <h4 className='card-title food-name'>
+                        {momos.name}
+                      </h4>
+
+                      <p className='food-description'>
+                        {momos.description}
+                      </p>
+
                       <div className="d-flex justify-content-between align-items-center ">
-                        <p className='card-price'>₹{momos.price}</p>
-                        <button className='food-add-btn btn '>Add <i className="bi bi-cart-plus"></i> </button>
+
+                        <p className='card-price'>
+                          ₹{momos.price}
+                        </p>
+                        <button className='food-add-btn btn ' onClick={()=>addToCart(momos,navigate)}>
+                          Add
+                          <i className="bi bi-cart-plus"></i> 
+                        </button>
                       </div>
                     </div>
                   </div>

@@ -1,7 +1,13 @@
 import React from 'react'
 import { Burger } from '../FoodData/Products'
+import { useNavigate } from 'react-router-dom'
+import { addToCart } from './addedToCart';
+
+
 
 const BurgerCart = () => {
+
+  const navigate = useNavigate();
   return (
     <>
       <section className='food-section'>
@@ -22,15 +28,25 @@ const BurgerCart = () => {
                           <span className="food-dot"></span>
                         </span>
 
-                        {/* <span className={food.veg ? "veg-text" : "nonveg-text"}>
-                                                         {food.veg ? "Veg" : "Non-Veg"}
-                                                     </span> */}
+                        
                       </div>
-                      <h4 className='card-title food-name'>{burger.name}</h4>
-                      <p className='food-description'>{burger.description}</p>
+
+                      <h4 className='card-title food-name'>
+                        {burger.name}
+                      </h4>
+
+                      <p className='food-description'>
+                        {burger.description}
+                      </p>
                       <div className="d-flex justify-content-between align-items-center ">
-                        <p className='card-price'>₹{burger.price}</p>
-                        <button className='food-add-btn btn '>Add <i className="bi bi-cart-plus"></i> </button>
+
+                        <p className='card-price'>
+                          ₹{burger.price}
+                        </p>
+                        <button className='food-add-btn btn '
+                        onClick={()=>addToCart(burger,navigate)}
+                        >
+                          Add <i className="bi bi-cart-plus"></i> </button>
                       </div>
                     </div>
                   </div>

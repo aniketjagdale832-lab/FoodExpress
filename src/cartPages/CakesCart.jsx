@@ -1,7 +1,10 @@
 import React from 'react'
 import { Cakes } from '../FoodData/Products'
+import { useNavigate } from 'react-router-dom'
+import { addToCart } from './addedToCart';
 
 const CakesCart = () => {
+  const navigate = useNavigate();
   return (
     <>
       <section className='food-section'>
@@ -13,7 +16,9 @@ const CakesCart = () => {
               Cakes.map((cake) => (
                 <div className="col-6 col-md-4 col-lg-3">
                   <div className="card food-card  border-0 mb-3">
+
                     <img src={cake.img} alt="" className='card-img-top food-img' />
+
                     <div className="body  p-3">
                       <div className="food-type ">
                         <span
@@ -22,15 +27,26 @@ const CakesCart = () => {
                           <span className="food-dot"></span>
                         </span>
 
-                        {/* <span className={food.veg ? "veg-text" : "nonveg-text"}>
-                                                           {food.veg ? "Veg" : "Non-Veg"}
-                                                       </span> */}
+                        
                       </div>
-                      <h4 className='card-title food-name'>{cake.name}</h4>
-                      <p className='food-description'>{cake.description}</p>
+
+                      <h4 className='card-title food-name'>
+                        {cake.name}
+                      </h4>
+
+                      <p className='food-description'>
+                        {cake.description}
+                      </p>
+
                       <div className="d-flex justify-content-between align-items-center ">
-                        <p className='card-price'>₹{cake.price}</p>
-                        <button className='food-add-btn btn '>Add <i className="bi bi-cart-plus"></i> </button>
+
+                        <p className='card-price'>
+                          ₹{cake.price}
+                        </p>
+                        <button className='food-add-btn btn ' onClick={()=>addToCart(cake,navigate)}>
+                          Add
+                          <i className="bi bi-cart-plus"></i> 
+                        </button>
                       </div>
                     </div>
                   </div>
