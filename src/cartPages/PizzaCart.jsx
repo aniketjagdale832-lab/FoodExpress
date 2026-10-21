@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Pizza } from '../FoodData/Products'
 import { useNavigate } from 'react-router-dom'
-import { addToCart } from './addedToCart';
+import { CartItemContext } from '../contextApi/CartItemContext';
+
 
 const PizzaCart = () => {
     const navigate = useNavigate();
+    const {addToCart} = useContext(CartItemContext)
     return (
         <>
             <section className='food-section'>
@@ -15,7 +17,7 @@ const PizzaCart = () => {
                         {
                             Pizza.map((pizza) => (
                                 <div className="col-6 col-md-4 col-lg-3">
-                                    <div className="card food-card  border-0 mb-3">
+                                    <div className="card food-card  border-0 mb-3" key={pizza.id}>
 
                                         <img src={pizza.img} alt="" className='card-img-top food-img' />
 

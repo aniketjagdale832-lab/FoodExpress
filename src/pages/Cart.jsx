@@ -1,14 +1,19 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import './Cart.css'
 import { useNavigate } from "react-router-dom";
+import { CartItemContext } from "../contextApi/CartItemContext";
 
 const Cart = () => {
 
 
     const navigate = useNavigate();
 
-    const [cartItems, setCartItems] = useState
-        (JSON.parse(localStorage.getItem("cartItems")) || []);
+    const {
+        cartItems,
+        increaseQuantity,
+        decreaseQuantity,
+        removeItemFromCart
+    } = useContext(CartItemContext)
 
 
 
@@ -17,42 +22,6 @@ const Cart = () => {
     //     localStorage.setItem("cartItems",JSON.stringify(items))
     // }
 
-    function increaseQuantity(cartItem) {
-
-        const existingItems = JSON.parse(localStorage.getItem('cartItems')) || []
-
-        const updatedItems = existingItems.map((item) => {
-            if (item.name === cartItem.name) {
-                return { ...item, quantity: item.quantity + 1 }
-            } return item;
-        })
-
-
-        localStorage.setItem('cartItems', JSON.stringify(updatedItems));
-        setCartItems(updatedItems);
-    }
-
-    function decreaseQuantity(cartItem) {
-        const existingItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-        const updateItems = existingItems.map((item) => {
-            if (item.name === cartItem.name) {
-                return ({ ...item, quantity: item.quantity - 1 });
-            }
-            return (item)
-        })
-
-        localStorage.setItem("cartItems", JSON.stringify(updateItems));
-        setCartItems(updateItems);
-    }
-
-    const removeItemFromCart = (cartItem) => {
-        const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-        const updateCartItems = cartItems.filter(
-            (item) => item.name !== cartItem.name);
-        localStorage.setItem("cartItems", JSON.stringify(updateCartItems));
-        setCartItems(updateCartItems);
-
-    }
 
     const totalAmount = cartItems.reduce((sum,item)=>{
         return (sum += item.price * item.quantity)
@@ -126,7 +95,7 @@ const Cart = () => {
                                         ) : (
                                             cartItems.map((cartItems) => (
 
-                                                <tbody className="table-body">
+                                                <tbody className="table-body" key={cartItems.id}>
                                                     <tr>
                                                         <td className="pruduct-img">
                                                             <img src={cartItems.img} alt="" height={"65px"} width={"80px"} />

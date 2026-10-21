@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './Navbar.css'
 import { toast } from 'react-toastify'
+import { CartItemContext } from '../contextApi/CartItemContext'
 
 
 
@@ -10,7 +11,12 @@ const Navbar = () => {
 
     const navigate = useNavigate()
 
-    const [loggedIn, setLoggedIn] = useState(JSON.parse(localStorage.getItem("loggedIn")))
+    const [loggedIn, setLoggedIn] = useState(JSON.parse(localStorage.getItem("loggedIn")));
+
+    const {cartItems}= useContext(CartItemContext);
+
+
+
 
     function logout() {
         toast.success("Logout successful")
@@ -20,9 +26,9 @@ const Navbar = () => {
         navigate('/login')
     }
 
-    
 
-    
+
+
 
 
 
@@ -66,10 +72,27 @@ const Navbar = () => {
                         <div className="navbar-nav  nav-links text-center ms-auto d-flex align-items-center fw-bold" id="navbarNav">
                             <Link to="/">Home</Link>
                             <Link to="/menu">Menu</Link>
-                            <Link to="/cart">Cart</Link>
+                            <Link to="/cart">
+                                <div className="position-relative d-inline-block">
+                                    <i className="bi bi-cart3 fs-3"></i>
+                                    {
+                                        cartItems.length > 0 && (
+                                            <span className='badge bg-danger position-absolute top-0 start-10 translate-middle rounded-pill'>
+                                                {cartItems.length}
+
+
+                                            </span>
+
+
+                                        )
+
+                                    }
+
+                                </div>
+                            </Link>
 
                             {
-                                loggedIn && <Link  to="/profile">profile</Link>
+                                loggedIn && <Link to="/profile">profile</Link>
                             }
 
                             {
@@ -81,12 +104,12 @@ const Navbar = () => {
                     </div>
                 </div>
 
-               
+
 
 
             </nav>
 
-            
+
 
 
 

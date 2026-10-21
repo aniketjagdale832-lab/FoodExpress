@@ -314,7 +314,7 @@ export const Momos = [
     name: "Paneer Momos",
     type: true,
     description: "Soft dumplings stuffed with spiced paneer, onion and herbs.",
-    img: "/image/momos-img/paneer-momos.png",
+    img: "/image/momos-img/panner-momos.png",
     price: 99
   },
   {
@@ -362,7 +362,7 @@ export const Momos = [
     name: "Kurkure Chicken Momos",
     type: false,
     description: "Extra-crispy chicken dumplings with a crunchy outer coating.",
-    img: "/image/momos-img/kurkure-momos.png",
+    img: "/image/momos-img/kurkure-chicken-momos.png",
     price: 169
   }
 ]

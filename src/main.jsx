@@ -9,10 +9,15 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from 'react-toastify'
+import CartItemProvider from './contextApi/CartItemContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <>
-   <RouterProvider router={router} />
-   <ToastContainer autoClose={1000}/>
+  <CartItemProvider>
+     <RouterProvider router={router} />
+  </CartItemProvider>
+
+  
+   <ToastContainer autoClose={2000}/>
   </>
 )
