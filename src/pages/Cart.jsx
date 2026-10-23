@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import './Cart.css'
 import { useNavigate } from "react-router-dom";
 import { CartItemContext } from "../contextApi/CartItemContext";
+import { toast } from "react-toastify";
 
 const Cart = () => {
 
@@ -34,6 +35,17 @@ const Cart = () => {
     const discount = totalAmount > 1000 ? totalAmount *0.1 :totalAmount > 500 ? totalAmount * 0.05 :  0;
    
     const finalAmount = totalAmount + deliveryFee - discount;
+
+    function ckeckout() {
+       const loginUser = JSON.parse(localStorage.getItem("loggedIn"));
+       if(!loginUser){
+           toast.error("Please login to checkout!");
+           navigate("/login");
+       }else{
+           toast.success("Place your order successfully!");
+       }
+    }
+
 
 
 
@@ -207,7 +219,7 @@ const Cart = () => {
 
                                     </div>
                                     <button
-                                        className="btn btn-warning btn-lg w-100 fw-bold">
+                                        className="btn btn-warning btn-lg w-100 fw-bold" onClick={ckeckout}>
 
                                         Proceed to Checkout
                                         <i className="bi bi-arrow-right"></i>

@@ -370,7 +370,7 @@
     color: #ffc107;
 }
 
-@media(max-width:767px){
+@media(max-width:575px){
    .feature-section {
         padding-top: 40px;
         padding-bottom: 40px;

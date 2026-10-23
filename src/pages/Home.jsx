@@ -214,9 +214,12 @@ const Home = () => {
 
                         </div>
                         <div className="col-md-4   mt-5  text-md-end">
-                                <button className='btn btn-outline-warning text-white fw-bold '>
+                            <Link to="/menu">
+                             <button className='btn btn-outline-warning text-white fw-bold '>
                                     Order Now
                                 </button>
+                            </Link>
+                                
                         </div>
 
                     </div>

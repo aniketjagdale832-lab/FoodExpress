@@ -1,5 +1,5 @@
 import Navbar from "./component/Navbar";
-import {Outlet} from "react-router-dom"
+import {Outlet, ScrollRestoration} from "react-router-dom"
 
 const App = ()=>{
 
@@ -9,6 +9,7 @@ const App = ()=>{
 
   return(
     <>
+    <ScrollRestoration />
     <Navbar />
     <Outlet />
    

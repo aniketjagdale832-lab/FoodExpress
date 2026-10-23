@@ -6,6 +6,9 @@ import PizzaCart from '../cartPages/PizzaCart.jsx'
 import BurgerCart from '../cartPages/BurgerCart.jsx'
 import { useEffect } from 'react'
 import { useRef } from 'react'
+import SandwichCart from '../cartPages/SandwichCart.jsx'
+import MomosCart from '../cartPages/MomosCart.jsx'
+import ParathaCart from '../cartPages/ParathaCart.jsx'
 
 
 
@@ -15,6 +18,8 @@ const Menu = () => {
     const [search,setSearch] =useState("");
     const [searchClicked, setsearchClicked] = useState(false);
     const [filteredFoods, setFilteredFoods] = useState([]);
+
+    const [selectedCategory,setSeclectedCategory] = useState("all");
 
     const allMenu = [...Pizza, ...Burger, ...Sandwich, ...Momos, ...Paratha, ...Biryanis, ...Cakes, ...IceCreams, ...FrenchFries];
 
@@ -92,18 +97,43 @@ const Menu = () => {
                         <div className="col-12 text-center mb-3">
                             <div className="category-button">
 
-                                <a href="#" className="category-btn all-food active"> All </a>
-                                <a href="#burgerFood" className="category-btn">  Burger </a>
-                                <a href="#pizzaFood" className="category-btn">  Pizza </a>
-                                <a href="#" className="category-btn">  Biryani </a>
-                                <a href="#" className="category-btn">  Shawarma </a>
-                                <a href="#" className="category-btn">  Cakes </a>
-                                <a href="#" className="category-btn">  Pastha </a>
-                                <a href="#" className="category-btn">  Paratha </a>
-                                <a href="#" className="category-btn">  Sandwich </a>
+                                {/* <a href="#" className="category-btn all-food active"> All </a> */}
 
+                                <button className="category-btn all-food active" onClick={()=>setSeclectedCategory("all")}>
+                                    All
+                                </button>
 
+                                <button className="category-btn" onClick={()=>setSeclectedCategory("burger")}>
+                                    Burger
+                                </button>
 
+                                 <button className="category-btn" onClick={()=>setSeclectedCategory("pizza")}>
+                                    Pizza
+                                </button>
+
+                                 <button className="category-btn" onClick={()=>setSeclectedCategory("shawarma")}>
+                                    Shawarma
+                                </button>
+
+                                 <button className="category-btn" onClick={()=>setSeclectedCategory("sandwich")}>
+                                    Sandwich
+                                </button>
+
+                                 <button className="category-btn" onClick={()=>setSeclectedCategory("paratha")}>
+                                    Paratha
+                                </button>
+
+                                 <button className="category-btn" onClick={()=>setSeclectedCategory("cakes")}>
+                                    Cakes
+                                </button>
+
+                                 <button className="category-btn" onClick={()=>setSeclectedCategory("biryani")}>
+                                    Biryani
+                                </button>
+
+                                 <button className="category-btn" onClick={()=>setSeclectedCategory("momos")}>
+                                    Momos
+                                </button>
 
                             </div>
 
@@ -136,10 +166,6 @@ const Menu = () => {
                                                         >
                                                             <span className="food-dot"></span>
                                                         </span>
-
-                                                        {/* <span className={food.veg ? "veg-text" : "nonveg-text"}>
-                                                                           {food.veg ? "Veg" : "Non-Veg"}
-                                                                       </span> */}
                                                     </div>
                                                     <h4 className='card-title food-name'>{food.name}</h4>
                                                     <p className='food-description'>{food.description}</p>
@@ -160,8 +186,32 @@ const Menu = () => {
                 ) : (
 
                     <>
-                        <PizzaCart />
-                        <BurgerCart />
+                    <section>
+                        {
+                            (selectedCategory === "all" || selectedCategory === "pizza") && ( <PizzaCart />)
+                        }
+
+                        {
+                            (selectedCategory === "all" || selectedCategory === "burger") && (<BurgerCart />)
+                        }
+
+                        {
+                            (selectedCategory === "all" || selectedCategory === "sandwich") && (<SandwichCart />)
+                        }
+
+                        {
+                            (selectedCategory === "all"  || selectedCategory === "momos") && (<MomosCart />)
+                        }
+
+                        {
+                            (selectedCategory === "all" || selectedCategory === "paratha") && (<ParathaCart />)
+                        }
+                    </section>
+                       
+                        {/* <BurgerCart />
+                        <SandwichCart />
+                        <MomosCart />
+                        <ParathaCart /> */}
                     </>
                 )
             }
