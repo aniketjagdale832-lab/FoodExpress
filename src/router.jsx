@@ -16,6 +16,8 @@ import ParathaCart from './cartPages/ParathaCart'
 import ShawarmaCart from './cartPages/ShawarmaCart'
 import IceCreameCart from './cartPages/IceCreameCart'
 import FrenchFriesCart from './cartPages/FrenchFriesCart'
+import Orders from './pages/Orders'
+// import Orders2 from '../../ReactDay4/src/Orders2'
 
 
 const router = createBrowserRouter([
@@ -36,6 +38,15 @@ const router = createBrowserRouter([
                 path:'/menu',
                 element:<Menu />
             },
+            {
+                path:'/orders',
+                element:<Orders />
+
+            },
+            // {
+            //     path:'/orders2',
+            //     element:<Orders2 />
+            // },
             {
                 path:'/login',
                 element:<Login />

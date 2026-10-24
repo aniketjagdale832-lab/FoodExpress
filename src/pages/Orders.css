@@ -1,0 +1,68 @@
+.orders-heading{
+    background-color: #fff9ef;
+    color: #ff6b00;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding: 15px;
+}
+.orders-heading h1 {
+    font-weight: bold;
+    font-size: clamp(25px, 4vw, 34px);
+    margin-bottom: 7px;
+}
+
+.orders-heading p {
+    color: #777d8b;
+    margin: 0;
+}
+.order-shop-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 11px 16px;
+    background: #ff6b00;
+    color: white;
+    text-decoration: none;
+    border-radius: 9px;
+    font-weight: 700;
+}
+
+.orders-count-card{
+    background-color: white;
+    border: 1px solid #eceef3;
+    box-shadow: 0 3px 12px #00000006;
+    max-width: 240px;
+    border-radius: 12px;
+    padding: 18px 22px;
+
+
+}
+
+/* ======================== empty orders ===============================  */
+
+.empty-orders h3{
+    font-weight: bold;
+    gap:10px;
+}
+
+/* ================================= Order Details============================ */
+
+.order-card .card{
+    background-color: white;
+    box-shadow: 0 3px 12px #00000006;
+}
+
+.order-card .card-body{
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+
+.order-details h4{
+    
+
+}

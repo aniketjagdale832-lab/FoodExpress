@@ -71,6 +71,11 @@ export default function CartItemProvider({children}){
         setCartItems(updateCartItems);
 
     }
+
+    const clearCart = ()=>{
+        setCartItems([]);
+        localStorage.removeItem("cartItems");
+    }
     
     
 
@@ -84,7 +89,8 @@ export default function CartItemProvider({children}){
             addToCart,
             increaseQuantity,
             decreaseQuantity,
-            removeItemFromCart
+            removeItemFromCart,
+            clearCart
             }}
             >
             {children}

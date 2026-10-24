@@ -18,6 +18,16 @@
 .empty-card .add-menu-btn:hover{
     background-color:#f49b00 ;
 }
+.cart-table-wrapper{
+    width:100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.cart-table-wrapper .table{
+    min-width: 750px;
+    margin-bottom: 0;
+    white-space: nowrap;
+}
 .pruduct-img img{
     border-radius: 10px;
 }
@@ -53,15 +63,9 @@
 }
 
 
-
-
-
-
-
 .order-summary {
     background-color: white;
-
-    border-radius: 15px;
+    border-radius: 7px;
 
     padding: 25px;
 
@@ -71,4 +75,26 @@
     position: sticky;
 
     top: 20px;
+}
+
+@media (max-width:576px) {
+    .cart-section .menu-detail{
+        padding: 15px !important;
+    }
+    .cart-header h4{
+        font-size: 18px;
+    }
+    .cart-table-wrapper{
+        max-width: 100%;
+    }
+     .inc-dec-btn {
+        min-width: 110px;
+    }
+
+    .summary-card{
+        padding: 15px;
+       
+    }
+    
+    
 }

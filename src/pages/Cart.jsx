@@ -13,7 +13,8 @@ const Cart = () => {
         cartItems,
         increaseQuantity,
         decreaseQuantity,
-        removeItemFromCart
+        removeItemFromCart,
+        clearCart
     } = useContext(CartItemContext)
 
 
@@ -41,10 +42,29 @@ const Cart = () => {
        if(!loginUser){
            toast.error("Please login to checkout!");
            navigate("/login");
-       }else{
-           toast.success("Place your order successfully!");
+           return;
        }
+       if(cartItems.length === 0){
+        toast.error("Your cart is empty!");
+        return;
+       }
+
+       const newOrder={
+        id:Date.now(),
+        orderDate: new Date().toLocaleString(),
+        items: cartItems.map(item => ({...item})),
+        subtotal: finalAmount
+       };
+
+       const orders = JSON.parse(localStorage.getItem("orders")) || [];
+       localStorage.setItem("orders", JSON.stringify([newOrder,...orders]));
+       clearCart();
+       toast.success("Order placed successfully!");
+       navigate("/orders");
     }
+       
+       
+
 
 
 
@@ -55,14 +75,15 @@ const Cart = () => {
             <section className="cart-section bg-light py-5" >
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-8">
-                            <div className="card border-0 shadow-sm p-5">
-                                <div className="cart-hrader">
+                        <div className="col-lg-8 col-md-12">
+                            <div className="card menu-detail border-0 shadow-sm p-5">
+                                <div className="cart-header">
                                     <h4 className="fw-bold">
                                         Your Items
                                     </h4>
                                     <hr />
                                 </div>
+                                <div className="table-responsive cart-table-wrapper">
                                 <table className="table">
                                     <thead className="table-heading">
                                         <th>Product</th>
@@ -164,6 +185,7 @@ const Cart = () => {
 
 
                                 </table>
+                                </div>  
 
 
                             </div>
@@ -172,9 +194,9 @@ const Cart = () => {
 
 
          {/* =============================================== order Summary Card =============================================== */}
-                        <div className="col-lg-4">
+                        <div className="col-lg-4 summary-card">
                             <div className="card border-0 shadow-sm ">
-                                <div className="cord-body order-summary p-4">
+                                <div className="card-body order-summary p-4">
                                     <h3 className="fw-bold">Order summary</h3>
                                     <div className="d-flex justify-content-between mb-2">
                                         <h6>

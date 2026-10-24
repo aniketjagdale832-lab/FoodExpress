@@ -90,6 +90,9 @@ const Navbar = () => {
 
                                 </div>
                             </Link>
+                            <Link to="/orders">Orders</Link>
+                             <Link to="/orders2">Orders2</Link>
+
 
                             {
                                 loggedIn && <Link to="/profile">profile</Link>

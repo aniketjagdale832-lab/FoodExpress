@@ -75,7 +75,7 @@ const Menu = () => {
                                     className="form-control"
                                     placeholder="Search your favorite food..." ref={searchRef} />
 
-                                <button className="btn btn-warning" onClick={handleSearch}>
+                                <button type="submit" className="btn btn-warning" onClick={handleSearch}>
                                     Search
                                 </button>
 
