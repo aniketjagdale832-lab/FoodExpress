@@ -469,7 +469,7 @@ export const Biryanis = [
     name: "Chicken Biryani",
     type: false,
     description: "Juicy chicken pieces layered with fragrant basmati rice and flavorful spices.",
-    img: "./image/biryani-img/chicken-biryani.png",
+    img: "./image/biryani-img/chicken-biryani.jpg",
     price: 219
   },
   {

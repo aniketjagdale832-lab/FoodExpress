@@ -51,18 +51,6 @@
 
 /* ================================= Order Details============================ */
 
-.order-card .card{
-    background-color: white;
-    box-shadow: 0 3px 12px #00000006;
-}
 
-.order-card .card-body{
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 20px;
-}
 
-.order-details h4{
-    
 
-}

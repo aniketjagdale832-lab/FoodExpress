@@ -9,6 +9,7 @@ import { useRef } from 'react'
 import SandwichCart from '../cartPages/SandwichCart.jsx'
 import MomosCart from '../cartPages/MomosCart.jsx'
 import ParathaCart from '../cartPages/ParathaCart.jsx'
+import BiryaniCart from '../cartPages/BiryaniCart.jsx'
 
 
 
@@ -206,6 +207,11 @@ const Menu = () => {
                         {
                             (selectedCategory === "all" || selectedCategory === "paratha") && (<ParathaCart />)
                         }
+
+                        {
+                            (selectedCategory === "all" || selectedCategory === "biryani") && (<BiryaniCart />)
+                        }
+                        
                     </section>
                        
                         {/* <BurgerCart />
