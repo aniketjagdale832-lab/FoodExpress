@@ -3,13 +3,13 @@ import './Orders.css'
 import { Link } from 'react-router-dom'
 
 const Orders = () => {
-    const [orders, setOrders] = useState(JSON.parse(localStorage.getItem("orders")) || [])
+    const allOrders = JSON.parse(localStorage.getItem("orderItems")) ||[];
     return (
         <>
             <section className='orders-page'>
-                <div className='container'>
+                <div className='container py-3'>
 
-                    <div className="orders-heading mt-5 mb-4">
+                    <div className="orders-heading mt-5 mb-4 shadow">
                         <div>
                             <h1>My Orders</h1>
                             <p>View your orders and track your deliveries.</p>
@@ -21,11 +21,11 @@ const Orders = () => {
                     </div>
                     <div className="orders-count-card">
                         <h6 className='text-muted'>Total Orders</h6>
-                        <h3 className='fw-bold'>{orders.length}</h3>
+                        <h3 className='fw-bold'>{allOrders.length}</h3>
                     </div>
 
                     {
-                        orders.length === 0 ? (
+                        allOrders.length === 0 ? (
                             <div className='card border-0 empty-orders mt-5 mb-5 p-4 d-flex flex-column justify-content-center align-items-center'>
                                 <div>
                                     <h3>
@@ -45,7 +45,7 @@ const Orders = () => {
 
 
                             <div className="order-list ">
-                                {orders.map((order) => (
+                                {allOrders.map((order) => (
                                     <div className="card border-0 shadow-sm mt-4" key={order.id}>
                                         <div className="card-body">
                                             <div className="row align-items-center g-3">
@@ -54,13 +54,25 @@ const Orders = () => {
                                                 <div className="col-6 col-lg-2">
                                                     <h5 className='fw-bold'>Order ID</h5>
                                                     <p>#{order.id}</p>
-                                                    <small>{order.orderDate}</small>
+                                                    <h6 className='fw-bold'>order Date</h6>
+                                                    <p>
+                                                        {new Date(order.orderDate).toLocaleDateString()}
+                                                    </p>
+                                                    <p>
+                                                        {new Date(order.orderDate).toLocaleTimeString()}
+                                                    </p>
                                                 </div>
 
                                                 {/* Column 2: Products */}
-                                                <div className="col-6 col-lg-5">
-                                                    <div className="d-flex flex-wrap gap-3">
-                                                        {order.items.slice(0, 3).map((item, index) => (
+                                                <div className="col-6 col-lg-5 scrollbar-hide ">
+                                                    <div className=" " 
+                                                    style={{
+                                                        overflowX: "auto",
+                                                        display: "flex",
+                                                        flexWrap: "nowrap",
+                                                        gap: "35px",
+                                                    }}>
+                                                        {order.items.map((item, index) => (
                                                             <div
                                                                 className="d-flex flex-column"
                                                                 key={`${item.id}-${index}`}
@@ -81,9 +93,6 @@ const Orders = () => {
                                                             </div>
                                                         ))}
 
-                                                        {order.items.length > 3 && (
-                                                            <p>+{order.items.length - 3} more items</p>
-                                                        )}
                                                     </div>
                                                 </div>
 

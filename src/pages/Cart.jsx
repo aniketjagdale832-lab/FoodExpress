@@ -56,8 +56,8 @@ const Cart = () => {
         subtotal: finalAmount
        };
 
-       const orders = JSON.parse(localStorage.getItem("orders")) || [];
-       localStorage.setItem("orders", JSON.stringify([newOrder,...orders]));
+       const existingOrders = JSON.parse(localStorage.getItem("orderItems")) || [];
+       localStorage.setItem("orderItems", JSON.stringify([newOrder,...existingOrders]));
        clearCart();
        toast.success("Order placed successfully!");
        navigate("/orders");
