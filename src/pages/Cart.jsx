@@ -25,45 +25,45 @@ const Cart = () => {
     // }
 
 
-    const totalAmount = cartItems.reduce((sum,item)=>{
+    const totalAmount = cartItems.reduce((sum, item) => {
         return (sum += item.price * item.quantity)
-    },0)
-    
+    }, 0)
 
-    const deliveryFee = totalAmount === 0 ? 0 :totalAmount< 300 ? 60 : totalAmount >300? 50 : 0;
-    
 
-    const discount = totalAmount > 1000 ? totalAmount *0.1 :totalAmount > 500 ? totalAmount * 0.05 :  0;
-   
+    const deliveryFee = totalAmount === 0 ? 0 : totalAmount < 300 ? 60 : totalAmount > 300 ? 50 : 0;
+
+
+    const discount = totalAmount > 1000 ? totalAmount * 0.1 : totalAmount > 500 ? totalAmount * 0.05 : 0;
+
     const finalAmount = totalAmount + deliveryFee - discount;
 
     function ckeckout() {
-       const loginUser = JSON.parse(localStorage.getItem("loggedIn"));
-       if(!loginUser){
-           toast.error("Please login to checkout!");
-           navigate("/login");
-           return;
-       }
-       if(cartItems.length === 0){
-        toast.error("Your cart is empty!");
-        return;
-       }
+        const loginUser = JSON.parse(localStorage.getItem("loggedIn"));
+        if (!loginUser) {
+            toast.error("Please login to checkout!");
+            navigate("/login");
+            return;
+        }
+        if (cartItems.length === 0) {
+            toast.error("Your cart is empty!");
+            return;
+        }
 
-       const newOrder={
-        id:Date.now(),
-        orderDate: new Date().toLocaleString(),
-        items: cartItems.map(item => ({...item})),
-        subtotal: finalAmount
-       };
+        const newOrder = {
+            orderId: Date.now(),
+            orderDate: new Date().toLocaleString(),
+            items: cartItems.map(item => ({ ...item })),
+            subtotal: finalAmount
+        };
 
-       const existingOrders = JSON.parse(localStorage.getItem("orderItems")) || [];
-       localStorage.setItem("orderItems", JSON.stringify([newOrder,...existingOrders]));
-       clearCart();
-       toast.success("Order placed successfully!");
-       navigate("/orders");
+        const existingOrders = JSON.parse(localStorage.getItem("orderItems")) || [];
+        localStorage.setItem("orderItems", JSON.stringify([newOrder, ...existingOrders]));
+        clearCart();
+        toast.success("Order placed successfully!");
+        navigate("/orders");
     }
-       
-       
+
+
 
 
 
@@ -84,108 +84,108 @@ const Cart = () => {
                                     <hr />
                                 </div>
                                 <div className="table-responsive cart-table-wrapper">
-                                <table className="table">
-                                    <thead className="table-heading">
-                                        <th>Product</th>
-                                        <th>Product Name</th>
-                                        <th>Price</th>
-                                        <th>Quantity</th>
-                                        <th>Total</th>
-                                        <th>Action</th>
-                                    </thead>
+                                    <table className="table">
+                                        <thead className="table-heading">
+                                            <th>Product</th>
+                                            <th>Product Name</th>
+                                            <th>Price</th>
+                                            <th>Quantity</th>
+                                            <th>Total</th>
+                                            <th>Action</th>
+                                        </thead>
 
 
 
-                                    {
+                                        {
 
-                                        cartItems.length === 0 ? (
+                                            cartItems.length === 0 ? (
 
-                                            <tr>
-                                                <td colSpan={6}>
-                                                    <div className="card border-0 shadow-sm py-2 empty-card">
-
-
-                                                        <h5 className="fw-bold">
-                                                            🛒 Your Cart is empty
-                                                        </h5>
-                                                        <p>
-                                                            Add some delicious food from our menu!
-                                                        </p>
-                                                        <td>
-                                                            <button className="btn add-menu-btn" onClick={() => navigate('/menu')}>Add Menu</button>
-                                                        </td>
+                                                <tr>
+                                                    <td colSpan={6}>
+                                                        <div className="card border-0 shadow-sm py-2 empty-card">
 
 
-                                                    </div>
-                                                </td>
+                                                            <h5 className="fw-bold">
+                                                                🛒 Your Cart is empty
+                                                            </h5>
+                                                            <p>
+                                                                Add some delicious food from our menu!
+                                                            </p>
+                                                            <td>
+                                                                <button className="btn add-menu-btn" onClick={() => navigate('/menu')}>Add Menu</button>
+                                                            </td>
 
 
-                                            </tr>
+                                                        </div>
+                                                    </td>
+
+
+                                                </tr>
 
 
 
 
-                                        ) : (
-                                            cartItems.map((cartItems) => (
+                                            ) : (
+                                                cartItems.map((cartItems) => (
 
-                                                <tbody className="table-body" key={cartItems.id}>
-                                                    <tr>
-                                                        <td className="pruduct-img">
-                                                            <img src={cartItems.img} alt="" height={"65px"} width={"80px"} />
-                                                        </td>
-                                                        <td className="product-name pt-4">
-                                                            {cartItems.name}
-                                                        </td>
-                                                        <td className="product-price pt-4 text-muted fw-bold fs-5 text-center">
-                                                            ₹{cartItems.price}
-                                                        </td>
-                                                        <td className="pt-4 ">
-                                                            <div className="input-group inc-dec-btn">
-                                                            <button className="btn btn-outline-dark" onClick={() => decreaseQuantity(cartItems)}>
-                                                                -
-                                                            </button>
-                                                            <input type="text" value={cartItems.quantity} className="input-value "  />
-                                                            {/* {cartItems.quantity} */}
+                                                    <tbody className="table-body" key={cartItems.id}>
+                                                        <tr>
+                                                            <td className="pruduct-img">
+                                                                <img src={cartItems.img} alt="" height={"65px"} width={"80px"} />
+                                                            </td>
+                                                            <td className="product-name pt-4">
+                                                                {cartItems.name}
+                                                            </td>
+                                                            <td className="product-price pt-4 text-muted fw-bold fs-5 text-center">
+                                                                ₹{cartItems.price}
+                                                            </td>
+                                                            <td className="pt-4 ">
+                                                                <div className="input-group inc-dec-btn">
+                                                                    <button className="btn btn-outline-dark" onClick={() => decreaseQuantity(cartItems)}>
+                                                                        -
+                                                                    </button>
+                                                                    <input type="text" value={cartItems.quantity} className="input-value " />
+                                                                    {/* {cartItems.quantity} */}
 
-                                                            <button className="btn btn-outline-dark  fw-bold" onClick={() => increaseQuantity(cartItems)}>
-                                                                +
-                                                            </button>
-                                                            </div>
-                                                        </td>
-                                                        <td className="product-total-price pt-4  fw-bold fs-5 text-center">
-                                                            ₹{Number(cartItems.price) * cartItems.quantity}
-                                                        </td>
-                                                        <td className="pt-4 text-center">
-                                                            
-                                                            <button class="btn btn-sm btn-outline-danger " onClick={() => removeItemFromCart(cartItems)}>
+                                                                    <button className="btn btn-outline-dark  fw-bold" onClick={() => increaseQuantity(cartItems)}>
+                                                                        +
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                            <td className="product-total-price pt-4  fw-bold fs-5 text-center">
+                                                                ₹{Number(cartItems.price) * cartItems.quantity}
+                                                            </td>
+                                                            <td className="pt-4 text-center">
 
-                                                                <i class="bi bi-trash"></i>
+                                                                <button class="btn btn-sm btn-outline-danger " onClick={() => removeItemFromCart(cartItems)}>
 
-                                                            </button>
+                                                                    <i class="bi bi-trash"></i>
 
-                                                        
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                                
-
-                                            ))
-                                            
-                                        )
-                                       
-                                    }
-                                    <tfoot className="table-footer">
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td className="text-center">Total</td>
-                                        <td className="fw-bold fs-5 text-center"> ₹{totalAmount}</td>
-                                        <td> </td>
-                                    </tfoot>
+                                                                </button>
 
 
-                                </table>
-                                </div>  
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+
+
+                                                ))
+
+                                            )
+
+                                        }
+                                        <tfoot className="table-footer">
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td className="text-center">Total</td>
+                                            <td className="fw-bold fs-5 text-center"> ₹{totalAmount}</td>
+                                            <td> </td>
+                                        </tfoot>
+
+
+                                    </table>
+                                </div>
 
 
                             </div>
@@ -193,7 +193,7 @@ const Cart = () => {
                         </div>
 
 
-         {/* =============================================== order Summary Card =============================================== */}
+                        {/* =============================================== order Summary Card =============================================== */}
                         <div className="col-lg-4 summary-card">
                             <div className="card border-0 shadow-sm ">
                                 <div className="card-body order-summary p-4">

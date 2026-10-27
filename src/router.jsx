@@ -18,6 +18,7 @@ import IceCreameCart from './cartPages/IceCreameCart'
 import FrenchFriesCart from './cartPages/FrenchFriesCart'
 import Orders from './pages/Orders'
  import Orders2 from '../../ReactDay4/src/Orders2'
+import OrderDetails from './component/OrderDetails'
 
 
 const router = createBrowserRouter([
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
                 path:'/orders',
                 element:<Orders />
 
+            },
+            {
+                path:'/orders/:orderId',
+                element:<OrderDetails />
             },
             {
                 path:'/login',

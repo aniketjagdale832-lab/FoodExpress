@@ -1,9 +1,14 @@
 import React, { useState } from 'react'
 import './Orders.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Orders = () => {
+    const navigate = useNavigate();
     const allOrders = JSON.parse(localStorage.getItem("orderItems")) ||[];
+
+    function viewDetails(order) {
+    navigate(`/orders/${order.orderId}`)
+  }
     return (
         <>
             <section className='orders-page'>
@@ -46,14 +51,14 @@ const Orders = () => {
 
                             <div className="order-list ">
                                 {allOrders.map((order) => (
-                                    <div className="card border-0 shadow-sm mt-4" key={order.id}>
+                                    <div className="card border-0 shadow-sm mt-4" key={order.orderId}>
                                         <div className="card-body">
                                             <div className="row align-items-center g-3">
 
                                                 {/* Column 1: Order ID */}
                                                 <div className="col-6 col-lg-2">
                                                     <h5 className='fw-bold'>Order ID</h5>
-                                                    <p>#{order.id}</p>
+                                                    <p>#{order.orderId}</p>
                                                     <h6 className='fw-bold'>order Date</h6>
                                                     <p>
                                                         {new Date(order.orderDate).toLocaleDateString()}
@@ -105,7 +110,7 @@ const Orders = () => {
                                                 {/* Column 4: Buttons */}
                                                 <div className="col-6 col-lg-3">
                                                     <div className="d-flex flex-wrap gap-2">
-                                                        <button className="btn btn-outline-dark btn-sm">
+                                                        <button className="btn btn-outline-dark btn-sm" onClick={()=>viewDetails(order)}>
                                                             Order Details
                                                         </button>
                                                         <button className="btn btn-outline-dark btn-sm">
