@@ -3,11 +3,20 @@ import './Orders.css'
 import { Link, useNavigate } from 'react-router-dom'
 
 const Orders = () => {
+
     const navigate = useNavigate();
-    const allOrders = JSON.parse(localStorage.getItem("orderItems")) ||[];
+   
+    const [allOrders,setAllOrders] = useState(JSON.parse(localStorage.getItem("orderItems")) ||[])
 
     function viewDetails(order) {
     navigate(`/orders/${order.orderId}`)
+  }
+
+  const cancelOrder = (order)=>{
+    const orders = JSON.parse(localStorage.getItem("orderItems")) || [];
+    const updatedOrders = orders.filter((item)=> item.orderId !== order.orderId)
+    localStorage.setItem("orderItems",JSON.stringify(updatedOrders));
+    setAllOrders(updatedOrders)
   }
     return (
         <>
@@ -104,22 +113,25 @@ const Orders = () => {
                                                 {/* Column 3: Total */}
                                                 <div className="col-6 col-lg-2">
                                                     <h6 className='fw-bold'>Order Total</h6>
-                                                    <h5>₹{(order.subtotal || 0).toFixed(2)}</h5>
+                                                    <h5>₹{(order.finalAmount || 0).toFixed(2)}</h5>
                                                 </div>
 
                                                 {/* Column 4: Buttons */}
                                                 <div className="col-6 col-lg-3">
-                                                    <div className="d-flex flex-wrap gap-2">
-                                                        <button className="btn btn-outline-dark btn-sm" onClick={()=>viewDetails(order)}>
+                                                    <div className="d-flex flex-wrap gap-2 orders-btn">
+                                                        <button className="btn orders-detail btn-sm" onClick={()=>viewDetails(order)}>
+                                                            <i className="bi bi-receipt"></i>
                                                             Order Details
                                                         </button>
-                                                        <button className="btn btn-outline-dark btn-sm">
+                                                        <button className="btn track-order btn-outline-dark btn-sm">
+                                                            <i className="bi bi-geo-alt"></i>
                                                             Track Order
                                                         </button>
-                                                        <button className="btn btn-outline-danger btn-sm">
+                                                        <button className="btn cancel-order btn-sm " onClick={()=>cancelOrder(order)}>
+                                                            <i className="bi bi-x-circle"></i>
                                                             Cancel Order
                                                         </button>
-                                                    </div>
+                                                    </div>  
                                                 </div>
 
                                             </div>

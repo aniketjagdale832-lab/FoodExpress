@@ -76,6 +76,16 @@
 
     top: 20px;
 }
+.order-summary .proceed-btn {
+    background-color: #ff6b00;
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+}
+.order-summary .proceed-btn:hover {
+    background-color: #f49b00;
+    color: white;
+}
 
 @media (max-width:576px) {
     .cart-section .menu-detail{

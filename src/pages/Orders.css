@@ -43,6 +43,26 @@
 
 }
 
+.orders-btn .orders-detail{
+    background: #ff6b00;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+
+}
+.orders-btn .cancel-order{
+    background-color: red;
+    color: white;;
+    font-weight: bold;
+    padding: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
 /* ======================== empty orders ===============================  */
 
 .empty-orders h3{

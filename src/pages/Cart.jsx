@@ -53,7 +53,10 @@ const Cart = () => {
             orderId: Date.now(),
             orderDate: new Date().toLocaleString(),
             items: cartItems.map(item => ({ ...item })),
-            subtotal: finalAmount
+            subtotal: totalAmount,
+            deliveryFee:deliveryFee,
+            discount:discount.toFixed(2),
+            finalAmount:finalAmount
         };
 
         const existingOrders = JSON.parse(localStorage.getItem("orderItems")) || [];
@@ -79,7 +82,7 @@ const Cart = () => {
                             <div className="card menu-detail border-0 shadow-sm p-5">
                                 <div className="cart-header">
                                     <h4 className="fw-bold">
-                                        Your Items
+                                       {cartItems.length > 1 ? "My Carts" : "My Cart"}
                                     </h4>
                                     <hr />
                                 </div>
@@ -241,7 +244,7 @@ const Cart = () => {
 
                                     </div>
                                     <button
-                                        className="btn btn-warning btn-lg w-100 fw-bold" onClick={ckeckout}>
+                                        className="btn proceed-btn btn-lg w-100 fw-bold" onClick={ckeckout}>
 
                                         Proceed to Checkout
                                         <i className="bi bi-arrow-right"></i>

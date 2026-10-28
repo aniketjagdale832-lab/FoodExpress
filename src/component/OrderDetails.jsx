@@ -43,7 +43,7 @@ const OrderDetails = () => {
 
                     </div>
 
-                    <div className='row mt-3 g-2'>
+                    <div className='row mt-3 g-3'>
                         <div className="col-lg-8">
                             <div className="card border-0 shadow-sm">
                                 <h2 className='fw-bold m-3'>{ orderDetails.items.length > 1 ? "Items" : "Item"}</h2>
@@ -97,8 +97,40 @@ const OrderDetails = () => {
                             </div>
                         </div>
                         <div className="col-lg-4">
-                            <div className="card">
-                                <h3 className='fw-bold text-center'> Order Summary</h3>
+                            <div className="card border-0 shadow-sm ">
+                                <h3 className='fw-bold text-center m-3'> Order Summary</h3>
+                                <hr />
+                                <div className="card-body">
+                                    <div className="d-flex justify-content-between align-items-center">
+                                        <h6 >Total Items</h6>
+                                        <p className='fw-bold'>{orderDetails.items.length}</p>
+                                    </div>
+
+                                    <div className="d-flex justify-content-between align-items-center">
+                                        <h6 >SubTotal</h6>
+                                        <p className='fw-bold'>{orderDetails.subtotal}</p>
+                                    </div>
+                                    
+                                    <div className="d-flex justify-content-between align-items-center">
+                                        <h6 >Delivery Fee</h6>
+                                        <p className='fw-bold'>{orderDetails.deliveryFee}</p>
+                                    </div>
+
+                                     <div className="d-flex justify-content-between align-items-center">
+                                        <h6>Discount</h6>
+                                        <p className='fw-bold'>{orderDetails.discount}</p>
+                                    </div>
+                                    <hr />
+
+                                    <div className="d-flex justify-content-between align-items-center">
+                                        <h3 className='fw-bold'>Total Amount</h3>
+                                        <p className='fw-bold'>₹{orderDetails.finalAmount}</p>
+                                    </div>
+                                    <div className="d-flex justify-content-between align-items-center">
+                                        
+                                    </div>
+                                    
+                                </div>
                             </div>
                         </div>
 
