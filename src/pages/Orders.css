@@ -72,6 +72,48 @@
 
 /* ================================= Order Details============================ */
 
+.order-scroll{
+    width:100%;
+     overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+.order-card{
+    width: 100%;
+    min-width: 100%;
+}
 
+.order-row > div {
+    flex-shrink: 0;
+}
+.order-row {
+    display: flex;
+    flex-wrap: nowrap !important;
+    align-items: center;
+
+}
+
+
+@media (max-width :768px) {
+    .order-scroll{
+        -webkit-overflow-scrolling: touch;
+    }
+    .order-card {
+        min-width: 1000px;
+    }
+     
+
+    .order-scroll .row {
+        flex-wrap: nowrap !important;
+    }
+    .order-row{
+        display: flex;
+        flex-wrap: nowrap !important;
+    }
+    .order-row > div {
+        flex-shrink: 0;
+    }
+    
+}
 
 
