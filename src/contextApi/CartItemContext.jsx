@@ -54,7 +54,11 @@ export default function CartItemProvider({children}){
         const existingItems = JSON.parse(localStorage.getItem("cartItems")) || [];
         const updateItems = existingItems.map((item) => {
             if (item.name === cartItem.name) {
-                return ({ ...item, quantity: item.quantity - 1 });
+                if(item.quantity>1){
+                    return ({ ...item, quantity: item.quantity - 1 });
+
+                }
+               
             }
             return (item)
         })
